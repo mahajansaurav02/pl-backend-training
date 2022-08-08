@@ -1,3 +1,5 @@
+const { json } = require('body-parser');
+const { request } = require('express');
 const express = require('express');
 const _ = require('lodash');
 const abc = require('../introduction/intro')
@@ -27,6 +29,16 @@ router.get('/test-me', function (req, res) {
     console.log(_.fromPairs(arr4))
     res.send('My second ever api!')
 });
+
+request.get('/student-name/:name', function(req,res){
+    console.log("This is the request of students details :"+ JSON.stringify(req,params))
+    let reqparams=req.params
+    let studentname=reqparams.name
+    console.log("This is the Name of the student "+ studentname)
+    let studentdetails=(studentname +" "+studentname)
+    res.send(studentdetails)
+
+})
 
 
 router.get('/test-you', function(req, res){
