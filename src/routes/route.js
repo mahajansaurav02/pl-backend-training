@@ -34,26 +34,43 @@ router.get('/movies/:indexNumber',function(req,res){
 router.get('/films',function(req,res){
     let moviearr=[
         {'id': 1,
-    'name': 'The mig'},
+        'name': 'The mig'},
         {'id': 2,
-    'name': 'Mission impossible 2'},
+        'name': 'Mission impossible 2'},
         {'id': 3,
-    'name': 'The conjuring'},
+        'name': 'The conjuring'},
         {'id': 4,
-    'name': 'vikings'},
+        'name': 'vikings'},
         {'id': 5,
-    'name': 'Game of thrones'}
+        'name': 'Game of thrones'}
 ]
-let arrresult=[]
-for(let i=0;i<moviearr.length;i++){
-    let main=moviearr[i];
-if(i==main.id){
-    let store=
-}
-}
- req.send()
+res.send(moviearr)
 })
+router.get('/films/:filmId',function(req,res){
+    let films=[
+        {'id': 1,
+        'name': 'The mig'},
+        {'id': 2,
+        'name': 'Mission impossible 2'},
+        {'id': 3,
+        'name': 'The conjuring'},
+        {'id': 4,
+        'name': 'vikings'},
+        {'id': 5,
+        'name': 'Game of thrones'}
+]
 
+    let filmId=req.params.filmId
+    for (let i=0;i<films.length;i++){
+        let getFilms=films[i]
+        if (getFilms[i]==filmId){
+           return res.send(films)
+
+        }
+    }
+    res.send('No movie exists with this id')
+
+})
 
 
 
