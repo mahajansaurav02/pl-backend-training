@@ -62,9 +62,10 @@ router.get('/films/:filmId',function(req,res){
 
     let filmId=req.params.filmId
     for (let i=0;i<films.length;i++){
-        let getFilms=films[i]
-        if (getFilms[i]==filmId){
-           return res.send(films)
+        let film=films[i]
+        // console.log(film)
+        if (film.id == filmId){
+           return res.send(film)
 
         }
     }
