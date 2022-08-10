@@ -13,6 +13,8 @@ router.get('/test-me', function (req, res) {
     res.send('My first ever api!')
 });
 
+
+
 router.get("/movies/:indexNumber", function(req, res){
     const movies = ["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"]
     console.log(req.params.indexNumber)
