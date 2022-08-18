@@ -1,22 +1,12 @@
 const mongoose=require('mongoose');
-const booksSchema =new mongoose.Schema({
+const UpdateBooksSchema =new mongoose.Schema({
     bookName:{
         type:String,
         required:true,
     },
-    price:{
-        indianPrice:String,
-        europianPrice:String
-    },
-    year:{
-        type:Number,
-        default:2021
-    },
-    authorName:String,
-    tags:["sadhana","deepstambh","laksh","garudjhep",""],
-    totalPages:Number,
-    srockAvailable:Boolean
-
+    author_id:Number,
+    price:Number,
+    rating:Number
 
 },{timestamps:true});
-module.exports=mongoose.model('Book',booksSchema)
+module.exports=mongoose.model('UpdateBook',UpdateBooksSchema)
