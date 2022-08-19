@@ -13,6 +13,7 @@ router.post('/createAuthor',authorController.createAuthor)
 router.get('/getBookOfC',BooksController.getBookOfC)
 router.get('/getAuthor',BooksController.getAuthor)
 router.get('/getLimitedBook',BooksController.getLimitedBook)
+router.get('/practice',authorController.practice)
 
 
 

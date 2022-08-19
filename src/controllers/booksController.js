@@ -5,6 +5,9 @@ const { get } = require('mongoose');
 
 const registerBooks =async function(req,res){
     let data=req.body;
+    if (!data.author_id){
+        return res.send({condition:"No Author id found",status:false})
+    }
     let collectData=await booksModel.create(data)
     res.send({Book:collectData,status:true})
 }
@@ -17,9 +20,11 @@ const getBookOfC=async function(req,res){
 } 
 const getAuthor=async function (req,res){
     let result=await booksModel.findOne({bookName:"India Positive"}).select({author_id:1,_id:0})
-    let nameOfAuthor=await authorModel.find({author_id:result["author_id"]})
-    .select({author_name:1,_id:0}).findOneAndUpdate({bookName:"India Positive"},{$set:{price:100}},{new:true})
-res.send({name:nameOfAuthor})
+    let nameOfAuthor=await authorModel.find({author_id:result["author_id"]}).select({author_name:1,_id:0})
+    let updatedPrice=await booksModel
+    .findOneAndUpdate({bookName:"India Positive"},{$set:{price:100}},{new:true}).select({price:1,_id:0})
+  
+res.send({name:nameOfAuthor,price:updatedPrice})
 }
 const getLimitedBook=async function(req,res){
     let getId=await booksModel.find({price:{$gte:50,$lte:500}}).select({author_id:1,_id:0})
@@ -29,6 +34,8 @@ const getLimitedBook=async function(req,res){
 res.send({data:newrange})
 
 }
+
+
 
 module.exports.registerBooks=registerBooks;
 module.exports.getBookOfC=getBookOfC
