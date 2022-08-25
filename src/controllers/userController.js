@@ -42,6 +42,19 @@ const getUsersData= async function (req, res) {
     res.send({msg: allUsers})
 }
 
+// let obj={
+//     "name":"saurav Sunil mahajan",
+//     "address-pincode":425001
+// }
+// obj["year"]=2022
+// console.log(obj)
+// console.log(obj.name)
+// console.log(obj["year"])
+// // console.log(obj.address-pincode)
+// console.log(obj["address-pincode"])
+
+
+
 module.exports.createUser= createUser
 module.exports.getUsersData= getUsersData
 module.exports.basicCode= basicCode
