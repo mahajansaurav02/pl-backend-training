@@ -3,9 +3,13 @@ const mid1= function ( req, res, next) {
     let data=req.headers
 if (!data.isfreeappuser){
     res.send("Require Header is not present ")
+}else{
+    req.isFreeAppUser=Boolean(req.headers.isfreeappuser)
 }
     next()
 }
+
+
 
 
 
