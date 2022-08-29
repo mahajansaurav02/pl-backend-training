@@ -26,7 +26,7 @@ const createOrder = async function (req, res) {
     data["amount"] = product["price"];
     if (product["price"] < user["balance"]) {
       let deduct = await userModel
-        .find({ in: [userid] })
+        .find({ $in: [userid] })
         .updateOne({ _id: { $in: userid } }, { $set: { balance: value } });
       let savedData = await orderModel.create(data);
       res.send({ data: savedData });
