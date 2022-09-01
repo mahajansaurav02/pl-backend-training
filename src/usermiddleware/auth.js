@@ -11,6 +11,8 @@ let decode= await jwt.verify(token,'saurav-secret-key')
 if (!decode){
     return res.send({status:false,msg:"token is not valid"})
 }
+
+// ================= CODE OF AUTHORISATION =================================================
 if (decode.userid!=userId){
     res.send({status:false,msg:" Invalid user found"})
 }
@@ -18,3 +20,4 @@ if (decode.userid!=userId){
 
 next()
 }
+module.exports.authmid=authmid

@@ -32,6 +32,9 @@ if(!decode){
     return res.send({status:false,msg:"token is invalid"})
 }
 let userId=req.params.userId
+
+// ================= CODE OF AUTHORISATION ============
+
 if (decode.userid!=userId){
     res.send({status:false,msg:"User is not valid"})
 }
@@ -52,6 +55,9 @@ if(!token){
 let decode= await jwt.verify(token,'saurav-secret-key')
 
 let userId=req.params.userId
+
+// ================= CODE OF AUTHORISATION =============
+
 if (decode.userid!=userId){
     res.send({status:false,msg:"User is not valid"})
 }
@@ -73,6 +79,9 @@ if(!token){
 let decode= await jwt.verify(token,'saurav-secret-key')
 
 let userid=req.params.userId
+
+// ================= CODE OF AUTHORISATION ============
+
 if (decode.userid!=userid){
     res.send({status:false,msg:"User is not valid"})
 }
